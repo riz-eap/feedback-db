@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify, send_file
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
@@ -5,10 +6,12 @@ from cloudant.error import CloudantException
 app = Flask(__name__)
 
 # Cloudant credentials
-apikey = "6c6er6u-EwrgMYssVgh9yYyyORVdR-kIeC4EdjEZl_bc"
-url = "https://f99c4c83-4ddf-41b0-a150-ef329ddaa470-bluemix.cloudantnosqldb.appdomain.cloud"
-username = "f99c4c83-4ddf-41b0-a150-ef329ddaa470-bluemix"
-db_name = "feedback-db" 
+
+apikey = os.getenv("CLOUDANT_APIKEY")
+url = os.getenv("CLOUDANT_URL")
+username = os.getenv("CLOUDANT_USERNAME")
+db_name = os.getenv("CLOUDANT_DBNAME")
+
 
 # Connect to Cloudant
 client = Cloudant.iam(username, apikey, url=url, connect=True)
