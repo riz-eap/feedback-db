@@ -1,4 +1,5 @@
 import os
+from flask_cors import CORS
 from flask import Flask, request, jsonify, send_file
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
