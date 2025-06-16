@@ -1,2 +1,4 @@
 Flask==2.3.2
 cloudant==2.14.0
+flask-cors
+gunicorm
