@@ -5,6 +5,8 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 
 app = Flask(__name__)
+CORS(app, origins=["https://riz-eap.github.io"])
+
 
 # Cloudant credentials
 
